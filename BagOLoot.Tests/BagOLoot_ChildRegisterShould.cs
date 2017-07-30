@@ -23,6 +23,13 @@ namespace BagOLoot.Tests
             Assert.True(result != null);
         }
 
+        // [Fact]
+        // public void AddNoResponse() ??????????
+        // {
+        //     _register.AddChild();
+        //     Assert.True(result == null);
+        // }
+
         [Fact]
         public void ReturnListOfChildren()
         {

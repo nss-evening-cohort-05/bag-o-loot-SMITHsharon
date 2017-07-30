@@ -15,6 +15,7 @@ namespace BagOLoot
       Console.WriteLine ("4. Review child's toy list");
       Console.WriteLine ("5. Child toy delivery complete");
       Console.WriteLine ("6. Yuletime Delivery Report");
+      Console.WriteLine ("7. Quit");
 			Console.Write ("> ");
       ConsoleKeyInfo enteredKey = Console.ReadKey();
       Console.WriteLine("");

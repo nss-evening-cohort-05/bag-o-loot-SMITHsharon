@@ -13,7 +13,10 @@ namespace BagOLoot.Actions
       Console.WriteLine ("Enter child name");
       Console.Write ("> ");
       string childName = Console.ReadLine();
-      Child childId = registry.AddChild(childName);
+      if (childName != null)
+      {
+        Child childId = registry.AddChild(childName);
+      }
     }
   }
 }
