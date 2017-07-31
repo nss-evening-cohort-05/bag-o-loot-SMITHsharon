@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace BagOLoot.Actions
 {
-  public class RevokeToy
+  public class RevokeToy // 3. Revoke toy from child
   {
     public static void DoAction(ToyRegister bag, ChildRegister book)
     {
       Console.Clear();
-      Console.WriteLine ("Choose child");
+      Console.WriteLine ("Remove toy from which child?");
 
       var children = book.GetChildren().ToArray();
       foreach (Child child in children)
@@ -21,10 +21,16 @@ namespace BagOLoot.Actions
       string childName = Console.ReadLine();
       Child kid = book.GetChild(children[int.Parse(childName)-1].name);
       
-      Console.WriteLine ($"Enter toy to add to {childName}'s Bag O' Loot:");
+      Console.WriteLine ($"Choose toy to remove from {kid}'s Bag O' Loot:");
+
+      var toys = bag.GetToysForChild(children[int.Parse(childName)-1]).ToArray(); // return List of toys
+      foreach (Toy toy in toys)
+      {
+        Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");
+      }
       Console.Write ("> ");
       string toyName = Console.ReadLine();
-      bag.Add(toyName, kid);
+      // bag.RevokeToy(toyName, kid);
     }
   }
 }

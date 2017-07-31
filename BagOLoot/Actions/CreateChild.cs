@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BagOLoot.Actions
 {
-  public class CreateChild
+  public class CreateChild // 1. Add a child
   {
     public static void DoAction(ChildRegister registry)
     {

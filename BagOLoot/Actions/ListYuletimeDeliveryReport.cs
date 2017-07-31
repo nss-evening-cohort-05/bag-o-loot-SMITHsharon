@@ -4,27 +4,29 @@ using System.Collections.Generic;
 
 namespace BagOLoot.Actions
 {
-  public class ListYuletimeDeliveryReport
+  public class ListYuletimeDeliveryReport // 6. Yuletime Delivery Report
   {
     public static void DoAction(ToyRegister bag, ChildRegister book)
     {
       Console.Clear();
-      Console.WriteLine ("Choose child");
+      Console.WriteLine("Yuletime Delivery Report");
+      Console.WriteLine("%%%%%%%%%%%%%%%%%%%%%%%%");
 
       var children = book.GetChildren().ToArray();
       foreach (Child child in children)
       {
-          Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
-      }
+          if (child.delivered)
+          {
+            var toys = bag.GetToysForChild(child).ToArray(); // return List of toys
+            // var toys = bag.GetToysForChild(children[int.Parse(childName)-1]).ToArray(); // return List of toys
 
-      Console.Write ("> ");
-      string childName = Console.ReadLine();
-      Child kid = book.GetChild(children[int.Parse(childName)-1].name);
-      
-      Console.WriteLine ($"Enter toy to add to {childName}'s Bag O' Loot:");
-      Console.Write ("> ");
-      string toyName = Console.ReadLine();
-      bag.Add(toyName, kid);
+            Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
+            foreach (Toy toy in toys)
+            {
+              Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");
+            }
+          }
+      }
     }
   }
 }
