@@ -36,7 +36,7 @@ namespace BagOLoot
 
                     // Menu option 3: Revoke toy from a child
                     case 3:
-                        RevokeToy.DoAction(bag, book);
+                        RemoveToy.DoAction(bag, book);
                         break;
 
                     // Menu option 4: Review child's toy list

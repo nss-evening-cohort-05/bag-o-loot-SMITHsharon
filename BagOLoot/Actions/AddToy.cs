@@ -28,18 +28,11 @@ namespace BagOLoot.Actions
     //   }
 
       Console.Write ("> ");
-      string childName = Console.ReadLine();
-      Console.WriteLine($"childName :: {childName}");
-      Console.WriteLine($"int.Parse(childName) :: {int.Parse(childName)}");
+      string childChoice = Console.ReadLine();
       
-      // Child kid = book.GetChild(children[int.Parse(childName)-1]);
-      Child kid = book.GetChild(children[int.Parse(childName)-1].name);
-      // Console.WriteLine($"this :: {book.GetChild(children[int.Parse(childName)-1].name)}");
-      Console.WriteLine($"this / 0 :: {book.GetChild(children[0].name)}");
-      Console.WriteLine($"this / 1 :: {book.GetChild(children[1].name)}");
-      Console.WriteLine($"kid :: {kid}");
+      Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
       
-      Console.WriteLine ($"Enter toy to add to {kid}'s Bag O' Loot:");
+      Console.WriteLine ($"Enter toy to add to {kid.name}'s Bag O' Loot:");
       Console.Write ("> ");
       string toyName = Console.ReadLine();
       bag.Add(toyName, kid);

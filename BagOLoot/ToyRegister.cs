@@ -9,7 +9,8 @@ namespace BagOLoot
     public Toy Add(string toy, Child child)
     {
       // Create new toy instance
-      Toy newToy = new Toy(){
+      Toy newToy = new Toy()
+      {
         name = toy,
         child = child
       };
@@ -22,12 +23,22 @@ namespace BagOLoot
 
     public void RevokeToy(Child kid, Toy toy)
     {
-
+      _toys.Remove(toy);
     }
 
     public List<Toy> GetToysForChild(Child kid)
     {
-      return new List<Toy>();
+      // use LINQ to return the toy list for a particular Child
+      List<Toy> toyList = new List<Toy>();
+      foreach(var toy in _toys)
+      {
+        if (toy.child == kid)
+        {
+          toyList.Add(toy);
+        }     
+      }
+      return toyList;
+      // return new List<Toy>();
     }
   }
 }

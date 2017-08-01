@@ -27,15 +27,22 @@ namespace BagOLoot.Tests
         }
 
         [Fact]
+        public void AddToyToList()
+        {
+            Child kid = _book.AddChild("Terell");
+            Toy toy = _register.Add("Silly Putty", kid);
+            List<Toy> toysForTerell = _register.GetToysForChild(kid);
+            Assert.True(toysForTerell.Count>0);
+        }
+
+        [Fact]
         public void RevokeToyFromChild()
         {
             Child kid = _book.AddChild("Terell");
             Toy toy = _register.Add("Silly Putty", kid);
             _register.RevokeToy(kid, toy);
             List<Toy> toysForTerell = _register.GetToysForChild(kid);
-
             Assert.DoesNotContain(toy, toysForTerell);
-
         }
     }
 }

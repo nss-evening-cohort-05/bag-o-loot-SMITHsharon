@@ -18,16 +18,22 @@ namespace BagOLoot.Actions
       }
 
       Console.Write ("> ");
-      string childName = Console.ReadLine();
-      Child kid = book.GetChild(children[int.Parse(childName)-1].name);
+      string childChoice = Console.ReadLine();
+      Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
       
-      Console.WriteLine ($"Choose toy to remove from {childName}'s Bag O' Loot:");
+      Console.WriteLine ($"{kid.name}'s Bag O' Loot:");
 
-      var toys = bag.GetToysForChild(children[int.Parse(childName)-1]).ToArray(); // return List of toys
+      var toys = bag.GetToysForChild(children[int.Parse(childChoice)-1]).ToArray(); // return List of toys
       foreach (Toy toy in toys)
       {
         Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");
       }
+
+      Console.WriteLine("Press <Enter> to return to Main Menu");
+      Console.WriteLine ("> ");
+      Console.ReadLine ();
+      return;
+      
     }
   }
 }
