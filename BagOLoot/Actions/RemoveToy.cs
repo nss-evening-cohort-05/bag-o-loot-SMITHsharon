@@ -11,6 +11,7 @@ namespace BagOLoot.Actions
       Console.Clear();
       Console.WriteLine ("Remove toy from which child?");
 
+      // don't list a child who has no toys
       var children = book.GetChildren().ToArray();
       foreach (Child child in children)
       {

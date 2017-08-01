@@ -18,20 +18,23 @@ namespace BagOLoot.Actions
 
       Console.Write ("> ");
       string childChoice = Console.ReadLine();
-      Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
-      
-      Console.WriteLine ($"Press Y to confirm that {kid.name}'s toys were all delivered.");
-      Console.Write ("> ");
-      string userResponse = Console.ReadLine();
-      
-      if (userResponse == "Y" || userResponse == "y")
+      if (childChoice != null)
       {
-        kid.delivered = true;
+        Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
+      
+        Console.WriteLine ($"Press Y to confirm that {kid.name}'s toys were all delivered.");
+        Console.Write ("> ");
+        string userResponse = Console.ReadLine();
+        
+        if (userResponse == "Y" || userResponse == "y")
+        {
+          kid.delivered = true;
+        }
       }
-      else 
-      {
-        return;
-      }
+        // else 
+        // {
+      return;
+        // }
     }
   }
 }

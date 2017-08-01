@@ -18,15 +18,18 @@ namespace BagOLoot.Actions
           if (child.delivered)
           {
             var toys = bag.GetToysForChild(child).ToArray(); // return List of toys
-            // var toys = bag.GetToysForChild(children[int.Parse(childName)-1]).ToArray(); // return List of toys
-
-            Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
+            
+            Console.WriteLine($"{child.name}'s toys delivered:");
             foreach (Toy toy in toys)
             {
               Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");
             }
           }
       }
+      Console.WriteLine("Press <Enter> to return to Main Menu");
+      Console.WriteLine ("> ");
+      Console.ReadLine ();
+      return;
     }
   }
 }
