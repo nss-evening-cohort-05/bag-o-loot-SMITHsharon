@@ -46,5 +46,14 @@ namespace BagOLoot.Tests
             Child svetlana = _register.GetChild("Svetlana");
             Assert.True(created.name == svetlana.name);
         }
+
+        [Fact]
+        public void NotDeliveredList()
+        {
+            Child kid = _book.AddChild("Terell");
+            Toy toy = _register.Add("Silly Putty", kid);
+            // List<Toy> toysForTerell = _register.GetToysForChild(kid);
+            // Assert.DoesNotContain(toy, toysForTerell);
+        }
     }
 }

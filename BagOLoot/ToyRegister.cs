@@ -38,7 +38,6 @@ namespace BagOLoot
         }     
       }
       return toyList;
-      // return new List<Toy>();
     }
   }
 }

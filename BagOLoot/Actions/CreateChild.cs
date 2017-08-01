@@ -9,7 +9,6 @@ namespace BagOLoot.Actions
     public static void DoAction(ChildRegister registry)
     {
       Console.Clear();
-
       Console.WriteLine ("Enter child name");
       Console.Write ("> ");
       string childName = Console.ReadLine();

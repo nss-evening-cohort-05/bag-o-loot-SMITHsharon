@@ -46,11 +46,12 @@ namespace BagOLoot
 
                     // Menu option 5: Child toy delivery complete
                     case 5:
-                        ListDeliveredChildren.DoAction(bag, book);
+                        AssignDeliveredChildren.DoAction(bag, book);
                         break;
 
                     // Menu option 6: Yuletime Delivery Report
                     case 6:
+                        Console.WriteLine("selected option 6");
                         ListYuletimeDeliveryReport.DoAction(bag, book);
                         break;
 
