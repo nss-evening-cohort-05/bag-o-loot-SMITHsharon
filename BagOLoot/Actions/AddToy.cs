@@ -21,17 +21,18 @@ namespace BagOLoot.Actions
         return;
       }
       
-      Console.WriteLine ("Assign toy to which child?");
-      foreach (Child child in children)
-      {
-          Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
-      }
+      // Console.WriteLine ("Assign toy to which child?");
+      // foreach (Child child in children)
+      // {
+      //     Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
+      // }
       
-      Console.Write ("> ");
-      string childChoice = Console.ReadLine();
+      // Console.Write ("> ");
+      // string childChoice = Console.ReadLine();
       
-      Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
-      
+      // Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
+      var kid = KidsMenu.Show(book);
+
       Console.WriteLine ($"Enter toy to add to {kid.name}'s Bag O' Loot:");
       Console.Write ("> ");
       string toyName = Console.ReadLine();

@@ -60,7 +60,7 @@ namespace BagOLoot
                         Environment.Exit(0);
                         break;
                 }
-            } while (choice != 7);
+            } while (choice < 6);
 
         }
     }

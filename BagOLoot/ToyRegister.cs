@@ -21,7 +21,8 @@ namespace BagOLoot
       return newToy;
     }
 
-    public void RevokeToy(Child kid, Toy toy)
+  public void RevokeToy(Toy toy)
+    // public void RevokeToy(Child kid, Toy toy)
     {
       _toys.Remove(toy);
     }
@@ -29,15 +30,23 @@ namespace BagOLoot
     public List<Toy> GetToysForChild(Child kid)
     {
       // use LINQ to return the toy list for a particular Child
-      List<Toy> toyList = new List<Toy>();
-      foreach(var toy in _toys)
-      {
-        if (toy.child == kid)
-        {
-          toyList.Add(toy);
-        }     
-      }
-      return toyList;
+      var kidsToys = 
+        from toy in _toys
+        where toy.child == kid
+        select toy;
+
+      // kidsToys = _toys.Where(Toy => Toy.child == kid);
+
+      return kidsToys.ToList();
+      // List<Toy> toyList = new List<Toy>();
+      // foreach(var toy in _toys)
+      // {
+      //   if (toy.child == kid)
+      //   {
+      //     toyList.Add(toy);
+      //   }     
+      // }
+      // return toyList;
     }
   }
 }

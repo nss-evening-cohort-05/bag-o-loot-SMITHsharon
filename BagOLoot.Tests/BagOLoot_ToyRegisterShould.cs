@@ -38,10 +38,15 @@ namespace BagOLoot.Tests
         [Fact]
         public void RevokeToyFromChild()
         {
+            // Arrange
             Child kid = _book.AddChild("Terell");
             Toy toy = _register.Add("Silly Putty", kid);
+
+            // Act
             _register.RevokeToy(kid, toy);
             List<Toy> toysForTerell = _register.GetToysForChild(kid);
+
+            // Assert
             Assert.DoesNotContain(toy, toysForTerell);
         }
     }
