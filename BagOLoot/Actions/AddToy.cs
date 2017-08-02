@@ -9,24 +9,24 @@ namespace BagOLoot.Actions
     public static void DoAction(ToyRegister bag, ChildRegister book)
     {
       Console.Clear();
-      Console.WriteLine ("Assign toy to which child?");
 
       var children = book.GetChildren().ToArray();
-      // Console.WriteLine($"children.Length :: {children.Length}");
-      // if (children.Length>1)
-      // {
-      //   Console.WriteLine ("Choose child");
+      
+      if (children.Length == 0)
+      {
+        Console.WriteLine("You must first register a child before you can assign any toys.");
+        Console.WriteLine("Press <Enter> to return to Main Menu");
+        Console.WriteLine ("> ");
+        Console.ReadLine ();
+        return;
+      }
+      
+      Console.WriteLine ("Assign toy to which child?");
       foreach (Child child in children)
       {
           Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
       }
-    // }
-    //   else
-    //   {
-    //     Console.WriteLine("You must first register a child before you can assign any toys.");
-    //     return;
-    //   }
-
+      
       Console.Write ("> ");
       string childChoice = Console.ReadLine();
       

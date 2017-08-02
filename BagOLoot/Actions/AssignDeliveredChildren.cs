@@ -33,7 +33,7 @@ namespace BagOLoot.Actions
       }
         // else 
         // {
-      return;
+      // return;
         // }
     }
   }

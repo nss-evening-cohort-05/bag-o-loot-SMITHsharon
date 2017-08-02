@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace BagOLoot.Actions
@@ -17,13 +18,6 @@ namespace BagOLoot.Actions
       {
           Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
       }
-      // var children =
-      //   from c in book
-      //   select c;
-      // foreach (var c in children)
-      // {
-      //   Console.WriteLine($"{c}");
-      // }
 
       Console.Write ("> ");
       string childChoice = Console.ReadLine();
@@ -32,6 +26,11 @@ namespace BagOLoot.Actions
       Console.WriteLine ($"Choose toy to remove from {kid.name}'s Bag O' Loot:");
 
       var toys = bag.GetToysForChild(children[int.Parse(childChoice)-1]).ToArray(); // return List of toys
+      // var toys =
+      //   from t in toys
+      //   where t.name == kid.name
+      //   select t;
+
       foreach (Toy toy in toys)
       {
         Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");
@@ -43,6 +42,11 @@ namespace BagOLoot.Actions
 
       // why is this not printing ???
       Console.WriteLine($"{thisToy.name} has been removed from {kid.name}'s Bag O' Loot.");
+
+      Console.WriteLine("Press <Enter> to return to Main Menu");
+      Console.WriteLine ("> ");
+      Console.ReadLine ();
+      return;
     }
   }
 }
