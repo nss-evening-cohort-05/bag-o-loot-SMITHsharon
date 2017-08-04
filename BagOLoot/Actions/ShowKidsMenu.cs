@@ -4,10 +4,10 @@ namespace BagOLoot.Actions
 {
     public class KidsMenu
     {
-        public static Child Show (SantasNiceList book)
+        public static Child Show (SantasNiceList book, string prompt)
         {
             Console.Clear();
-            Console.WriteLine ("Choose child:");
+            Console.WriteLine (prompt);
 
             var children = book.GetChildren().ToArray();
             foreach (Child child in children)

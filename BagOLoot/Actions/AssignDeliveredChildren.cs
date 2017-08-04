@@ -7,29 +7,22 @@ namespace BagOLoot.Actions
   public class AssignDeliveredChildren // 5. Child toy delivery complete
   {
     public static void DoAction(SantasToyBag bag, SantasNiceList book)
-    {Console.Clear();
-      Console.WriteLine ("Which child had all of their toys delivered?");
-
+    {
       var children = book.GetChildren().ToArray();
-      foreach (Child child in children)
+      if (children.Length == 0)
       {
-          Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
+        PromptForAddChild.Prompt("You must first register a child and their toys before any toys can be delivered.");
+        return;
       }
-
-      Console.Write ("> ");
-      string childChoice = Console.ReadLine();
-      if (childChoice != null)
-      {
-        Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
+      var kid = KidsMenu.Show(book, "Which child had all of their toys delivered?");
       
-        Console.WriteLine ($"Press Y to confirm that {kid.name}'s toys were all delivered.");
-        Console.Write ("> ");
-        string userResponse = Console.ReadLine();
-        
-        if (userResponse == "Y" || userResponse == "y")
-        {
-          kid.delivered = true;
-        }
+      Console.WriteLine ($"Press Y to confirm that {kid.name}'s toys were all delivered.");
+      Console.Write ("> ");
+      string userResponse = Console.ReadLine();
+      
+      if (userResponse == "Y" || userResponse == "y")
+      {
+        kid.delivered = true;
       }
     }
   }

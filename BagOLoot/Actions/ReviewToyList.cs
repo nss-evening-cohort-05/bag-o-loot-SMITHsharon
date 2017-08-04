@@ -8,22 +8,18 @@ namespace BagOLoot.Actions
   {
     public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
-      Console.Clear();
-      Console.WriteLine ("View Bag o' Loot for which child?");
-
       var children = book.GetChildren().ToArray();
-      foreach (Child child in children)
+      if (children.Length == 0)
       {
-          Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
+        PromptForAddChild.Prompt("You must first register a child and their toys before you view the toy list.");
+        return;
       }
+      var kid = KidsMenu.Show(book, "View Bag o' Loot for which child:");
 
-      Console.Write ("> ");
-      string childChoice = Console.ReadLine();
-      Child kid = book.GetChild(children[int.Parse(childChoice)-1].name);
+      var toys = bag.GetToysForChild(kid).ToArray();
       
       Console.WriteLine ($"{kid.name}'s Bag O' Loot:");
 
-      var toys = bag.GetToysForChild(children[int.Parse(childChoice)-1]).ToArray(); // return List of toys
       foreach (Toy toy in toys)
       {
         Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");

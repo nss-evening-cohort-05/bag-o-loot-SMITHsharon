@@ -9,8 +9,8 @@ namespace BagOLoot.Actions
     public static void DoAction(SantasNiceList registry)
     {
       Console.Clear();
-      
-      Console.WriteLine ("Enter child name");
+
+      Console.WriteLine ("Enter child name:");
       Console.Write ("> ");
       string childName = Console.ReadLine();
       if (childName != null)
