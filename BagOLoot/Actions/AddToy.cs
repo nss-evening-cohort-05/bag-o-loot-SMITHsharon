@@ -4,24 +4,22 @@ using System.Collections.Generic;
 
 namespace BagOLoot.Actions
 {
-  public class AddToy
+  public class AddToy // 2. Assign toy to a child
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
       Console.Clear();
-      Console.WriteLine ("Choose child");
 
       var children = book.GetChildren().ToArray();
-      foreach (Child child in children)
+      if (children.Length == 0)
       {
-          Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
+        PromptForAddChild.Prompt("You must first register a child before you can assign any toys.");
+        return;
       }
-
-      Console.Write ("> ");
-      string childName = Console.ReadLine();
-      Child kid = book.GetChild(children[int.Parse(childName)-1].name);
       
-      Console.WriteLine ("Enter toy");
+      var kid = KidsMenu.Show(book, "Assign toy to which child:");
+
+      Console.WriteLine ($"Enter toy to add to {kid.name}'s Bag O' Loot:");
       Console.Write ("> ");
       string toyName = Console.ReadLine();
       bag.Add(toyName, kid);
