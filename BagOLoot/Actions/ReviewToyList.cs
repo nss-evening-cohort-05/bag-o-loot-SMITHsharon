@@ -6,7 +6,7 @@ namespace BagOLoot.Actions
 {
   public class ReviewToyList // 4. Review child's toy list
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
       Console.Clear();
       Console.WriteLine ("View Bag o' Loot for which child?");

@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace BagOLoot.Actions
 {
-  public class RemoveToy // 3. Revoke toy from child
+  public class RevokeToy // 3. Revoke toy from child
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
       
       // Console.Clear();
@@ -28,19 +28,20 @@ namespace BagOLoot.Actions
 
       // var toys = bag.GetToysForChild(children[int.Parse(childChoice)-1]).ToArray(); // return List of toys
       var toys = bag.GetToysForChild(kid).ToArray();
-      
+
       foreach (Toy toy in toys)
+      // foreach (var toy in toys)
       {
         Console.WriteLine($"{Array.IndexOf(toys,toy)+1}. {toy.name}");
       }
       Console.Write ("> ");
       string toyChoice = Console.ReadLine();
-      Toy thisToy = toys[int.Parse(toyChoice)-1];
+      Toy chosenToy = toys[int.Parse(toyChoice)-1];
       // bag.RevokeToy(kid, thisToy);
-      bag.RevokeToy(thisToy);
+      bag.RevokeToy(chosenToy);
 
       // why is this not printing ???
-      Console.WriteLine($"{thisToy.name} has been removed from {kid.name}'s Bag O' Loot.");
+      Console.WriteLine($"{chosenToy.name} has been removed from {kid.name}'s Bag O' Loot.");
 
       Console.WriteLine("Press <Enter> to return to Main Menu");
       Console.WriteLine ("> ");

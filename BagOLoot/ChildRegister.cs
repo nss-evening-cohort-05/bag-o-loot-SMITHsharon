@@ -5,7 +5,7 @@ using Microsoft.Data.Sqlite;
 
 namespace BagOLoot
 {
-    public class ChildRegister
+    public class SantasNiceList
     {
         private List<Child> _children = new List<Child>();
         public Child AddChild (string childName) 

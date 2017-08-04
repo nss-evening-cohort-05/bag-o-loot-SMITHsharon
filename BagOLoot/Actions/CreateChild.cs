@@ -6,9 +6,10 @@ namespace BagOLoot.Actions
 {
   public class CreateChild // 1. Add a child
   {
-    public static void DoAction(ChildRegister registry)
+    public static void DoAction(SantasNiceList registry)
     {
       Console.Clear();
+      
       Console.WriteLine ("Enter child name");
       Console.Write ("> ");
       string childName = Console.ReadLine();

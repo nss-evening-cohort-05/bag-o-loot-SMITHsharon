@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BagOLoot
 {
-  public class ToyRegister
+  public class SantasToyBag
   {
     private List<Toy> _toys = new List<Toy>();
 
@@ -21,8 +23,7 @@ namespace BagOLoot
       return newToy;
     }
 
-  public void RevokeToy(Toy toy)
-    // public void RevokeToy(Child kid, Toy toy)
+    public void RevokeToy(Toy toy)
     {
       _toys.Remove(toy);
     }
@@ -38,15 +39,6 @@ namespace BagOLoot
       // kidsToys = _toys.Where(Toy => Toy.child == kid);
 
       return kidsToys.ToList();
-      // List<Toy> toyList = new List<Toy>();
-      // foreach(var toy in _toys)
-      // {
-      //   if (toy.child == kid)
-      //   {
-      //     toyList.Add(toy);
-      //   }     
-      // }
-      // return toyList;
     }
   }
 }

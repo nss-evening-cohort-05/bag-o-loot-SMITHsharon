@@ -6,7 +6,7 @@ namespace BagOLoot.Actions
 {
   public class AddToy // 2. Assign toy to a child
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
       Console.Clear();
 

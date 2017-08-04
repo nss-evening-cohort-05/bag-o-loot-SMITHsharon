@@ -6,7 +6,7 @@ namespace BagOLoot.Actions
 {
   public class ListYuletimeDeliveryReport // 6. Yuletime Delivery Report
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
       Console.Clear();
       Console.WriteLine("Yuletime Delivery Report");

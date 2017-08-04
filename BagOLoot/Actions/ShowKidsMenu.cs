@@ -4,7 +4,7 @@ namespace BagOLoot.Actions
 {
     public class KidsMenu
     {
-        public static Child Show (ChildRegister book)
+        public static Child Show (SantasNiceList book)
         {
             Console.Clear();
             Console.WriteLine ("Choose child:");

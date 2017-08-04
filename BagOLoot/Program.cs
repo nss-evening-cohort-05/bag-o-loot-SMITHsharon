@@ -10,8 +10,8 @@ namespace BagOLoot
         public static void Main(string[] args)
         {
             MainMenu menu = new MainMenu();
-            ChildRegister book = new ChildRegister();
-            ToyRegister bag = new ToyRegister();
+            SantasNiceList book = new SantasNiceList();
+            SantasToyBag bag = new SantasToyBag();
 
             // Choice will hold the number entered by the user
             // after main menu ws displayed
@@ -21,7 +21,7 @@ namespace BagOLoot
             {
                 // Show the main menu
                 choice = menu.Show();
-
+                
                 switch (choice)
                 {
                     // Menu option 1: Add a child
@@ -36,7 +36,7 @@ namespace BagOLoot
 
                     // Menu option 3: Revoke toy from a child
                     case 3:
-                        RemoveToy.DoAction(bag, book);
+                        RevokeToy.DoAction(bag, book);
                         break;
 
                     // Menu option 4: Review child's toy list
@@ -60,7 +60,7 @@ namespace BagOLoot
                         Environment.Exit(0);
                         break;
                 }
-            } while (choice < 6);
+            } while (choice < 7);
 
         }
     }

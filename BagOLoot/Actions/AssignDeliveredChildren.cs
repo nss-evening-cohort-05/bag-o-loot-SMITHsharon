@@ -6,7 +6,7 @@ namespace BagOLoot.Actions
 {
   public class AssignDeliveredChildren // 5. Child toy delivery complete
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {Console.Clear();
       Console.WriteLine ("Which child had all of their toys delivered?");
 
@@ -31,10 +31,6 @@ namespace BagOLoot.Actions
           kid.delivered = true;
         }
       }
-        // else 
-        // {
-      // return;
-        // }
     }
   }
 }
