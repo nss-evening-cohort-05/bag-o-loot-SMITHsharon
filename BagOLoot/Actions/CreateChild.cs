@@ -17,6 +17,7 @@ namespace BagOLoot.Actions
       {
         Child childId = registry.AddChild(childName);
       }
+      return;
     }
   }
 }

@@ -14,7 +14,7 @@ namespace BagOLoot
             SantasToyBag bag = new SantasToyBag();
 
             // Choice will hold the number entered by the user
-            // after main menu ws displayed
+            // after main menu is displayed
             int choice;
 
             do
