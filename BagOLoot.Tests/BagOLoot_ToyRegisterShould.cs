@@ -6,13 +6,13 @@ namespace BagOLoot.Tests
 {
     public class ToyRegisterShould
     {
-        private readonly ToyRegister _register;
-        private readonly ChildRegister _book;
+        private readonly SantasToyBag _register;
+        private readonly SantasNiceList _book;
 
         public ToyRegisterShould()
         {
-            _register = new ToyRegister();
-            _book = new ChildRegister();
+            _register = new SantasToyBag();
+            _book = new SantasNiceList();
         }
 
         [Fact]
@@ -26,14 +26,14 @@ namespace BagOLoot.Tests
             Assert.True(toy != null);
         }
 
-        [Fact]
-        public void AddToyToList()
-        {
-            Child kid = _book.AddChild("Terell");
-            Toy toy = _register.Add("Silly Putty", kid);
-            List<Toy> toysForTerell = _register.GetToysForChild(kid);
-            Assert.True(toysForTerell.Count>0);
-        }
+        // [Fact]
+        // public void AddToyToList()
+        // {
+        //     Child kid = _book.AddChild("Terell");
+        //     Toy toy = _register.Add("Silly Putty", kid);
+        //     List<Toy> toysForTerell = _register.GetToysForChild(kid);
+        //     Assert.True(toysForTerell.Count>0);
+        // }
 
         [Fact]
         public void RevokeToyFromChild()
@@ -43,11 +43,45 @@ namespace BagOLoot.Tests
             Toy toy = _register.Add("Silly Putty", kid);
 
             // Act
-            _register.RevokeToy(kid, toy);
+            _register.RevokeToy(toy);
             List<Toy> toysForTerell = _register.GetToysForChild(kid);
 
             // Assert
             Assert.DoesNotContain(toy, toysForTerell);
         }
+
+        // [Fact]
+        // public void ReviewToyListForChildren()
+        // {
+            // Arrange
+        //     Child child1 = _book.AddChild("Sean");
+        //     Child child2 = _book.AddChild("Heather");
+        //     Toy toy1 = _register.Add("Bicycle", child1);
+        //     Toy toy2 = _register.Add("Flute", child2);
+        //     Toy toy3 = _register.Add("Laptop", child1);
+
+            // Act
+
+            // Assert
+        //     //Assert.Count(); 
+        // }
+
+        // [Fact]
+        // public void ListAllofChildsToys()
+        // {
+            // Arrange
+        //     Child child1 = _book.AddChild("Sean");
+        //     Child child2 = _book.AddChild("Heather");
+        //     Toy toy1 = _register.Add("Bicycle", child1);
+        //     Toy toy2 = _register.Add("Laptop", child1);
+        //     Toy toy3 = _register.Add("Flute", child2);
+
+            // Act
+        //     List<Toy> toysForKiddo = _register.GetToysForChild(child1);
+
+            // Assert
+        //     Assert.Contains("Ball", "Truck");
+        //     // Assert.Count(); 
+        // }
     }
 }

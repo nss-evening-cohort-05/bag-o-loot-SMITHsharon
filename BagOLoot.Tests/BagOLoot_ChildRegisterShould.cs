@@ -6,11 +6,11 @@ namespace BagOLoot.Tests
 {
     public class ChildRegisterShould
     {
-        private readonly ChildRegister _register;
+        private readonly SantasNiceList _register;
 
         public ChildRegisterShould()
         {
-            _register = new ChildRegister();
+            _register = new SantasNiceList();
         }
 
         [Theory]
@@ -47,13 +47,13 @@ namespace BagOLoot.Tests
             Assert.True(created.name == svetlana.name);
         }
 
-        [Fact]
-        public void NotDeliveredList()
-        {
-            Child kid = _book.AddChild("Terell");
-            Toy toy = _register.Add("Silly Putty", kid);
-            // List<Toy> toysForTerell = _register.GetToysForChild(kid);
-            // Assert.DoesNotContain(toy, toysForTerell);
-        }
+        // [Fact]
+        // public void NotDeliveredList()
+        // {
+        //     Child kid = _book.AddChild("Terell");
+        //     Toy toy = _register.Add("Silly Putty", kid);
+        //     // List<Toy> toysForTerell = _register.GetToysForChild(kid);
+        //     // Assert.DoesNotContain(toy, toysForTerell);
+        // }
     }
 }
