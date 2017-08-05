@@ -27,7 +27,7 @@ WELCOME TO THE BAG O' LOOT SYSTEM
 ```
 
 - Completed functionality for all menu options, with correct output
-- Included error-handling, so (for most cases) app returns to Main Menu at unexpected/invalid user input, vs app crash. e.g. If user presses `Return` with no response. 
+- Included error-handling, so (for most cases) app returns to Main Menu at unexpected/invalid user input, vs app crash. e.g. If user presses `Return` with no response at a prompt. 
 - All Unit Tests pass
 - Refactored the code. Code blocks that are repeated were extracted to methods, and then called. 
 
