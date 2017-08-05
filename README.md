@@ -25,3 +25,34 @@ WELCOME TO THE BAG O' LOOT SYSTEM
 7. Quit
 > 
 ```
+
+- Completed functionality for all menu options, with correct output
+- Wrote in error-handling, so (for most cases) app returns to Main Menu at unexpected user input, vs app crash. e.g. If user presses `Return` with no response. 
+- All Unit Tests pass
+- Refactored the code. Code blocks that are repeated were extracted to methods, and then called. 
+
+#### Unit Tests
+- `ChildRegisterShould` ...
+  -- `AddChildren`
+  -- `ReturnListOfChildren`
+  -- `GetAChild`
+  -- `SetDeliveredStatusForChild`
+  
+- `ToyRegisterShould` ... 
+  -- `AddToy`
+  -- `GetToyListForChild`
+  -- `RevokeToyFromChild`
+
+
+### Technologies Used
+- `C#`
+- Visual Studio Code
+
+
+```
+git clone https://github.com/SMITHsharon/nameParserUnitTesting.git
+cd bag-o-loot-SMITHsharon
+```
+
+### Contributor
+[Sharon Smith](https://github.com/SMITHsharon)
