@@ -50,7 +50,7 @@ WELCOME TO THE BAG O' LOOT SYSTEM
 
 
 ```
-git clone https://github.com/SMITHsharon/nameParserUnitTesting.git
+git clone https://github.com/nss-evening-cohort-05/bag-o-loot-SMITHsharon.git
 cd bag-o-loot-SMITHsharon
 ```
 
