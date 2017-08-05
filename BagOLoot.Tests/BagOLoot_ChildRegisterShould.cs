@@ -14,9 +14,9 @@ namespace BagOLoot.Tests
         }
 
         [Theory] // Arrange
-        [InlineData("Sarah")]
-        [InlineData("Jamal")]
-        [InlineData("Kelly")]
+        [InlineData("Sean")]
+        [InlineData("Heather")]
+        [InlineData("Harrison")]
         public void AddChildren(string child)
         {
             // Act

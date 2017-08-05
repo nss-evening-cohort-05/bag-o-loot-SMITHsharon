@@ -18,70 +18,68 @@ namespace BagOLoot.Tests
         [Fact]
         public void AddToy()
         {
-            // Create a child
-            Child kid = _book.AddChild("Terell");
+            // Arrange
+            string toyName = "bicycle";
+            Child kid = _book.AddChild("Sean");
 
-            // Add a toy for the child
-            Toy toy = _register.Add("Silly Putty", kid);
-            Assert.True(toy != null);
+            // Act
+            Toy toy = _register.Add(toyName, kid);
+
+            // Assert
+            Assert.Equal(toy.name, toyName);
         }
 
-        // [Fact]
-        // public void AddToyToList()
-        // {
-        //     Child kid = _book.AddChild("Terell");
-        //     Toy toy = _register.Add("Silly Putty", kid);
-        //     List<Toy> toysForTerell = _register.GetToysForChild(kid);
-        //     Assert.True(toysForTerell.Count>0);
-        // }
+
+        [Fact]
+        public void GetToyListForChild()
+        {
+            // Arrange
+            Child kid = _book.AddChild("Sean");
+            string toy1 = "bicycle";
+            string toy2 = "laptop";
+            string toy3 = "other stuff";
+            _register.Add(toy1, kid);
+            _register.Add(toy2, kid);
+            _register.Add(toy3, kid);
+            
+            // Act
+            List<Toy> result = _register.GetToysForChild(kid);
+            Toy toyObject1 = result[0];
+            Toy toyObject2 = result[1];
+            Toy toyObject3 = result[2];
+
+            // Assert
+            Assert.IsType<List<Toy>>(result);
+            Assert.True(toyObject1.name == "bicycle");
+            Assert.True(toyObject2.name == "laptop");
+            Assert.True(toyObject3.name == "other stuff");
+        }
+
 
         [Fact]
         public void RevokeToyFromChild()
         {
             // Arrange
-            Child kid = _book.AddChild("Terell");
-            Toy toy = _register.Add("Silly Putty", kid);
-
+            Child kid = _book.AddChild("Sean");
+            string toy1 = "bicycle";
+            string toy2 = "laptop";
+            string toy3 = "other stuff";
+            _register.Add(toy1, kid);
+            _register.Add(toy2, kid);
+            _register.Add(toy3, kid);
+            List<Toy> toyList = _register.GetToysForChild(kid);
+            Toy ToyToRevoke = toyList[1]; // toy2
+            
             // Act
-            _register.RevokeToy(toy);
-            List<Toy> toysForTerell = _register.GetToysForChild(kid);
+            _register.RevokeToy(ToyToRevoke);
+            List<Toy> result = _register.GetToysForChild(kid);
+            Toy toyObject1 = result[0];
+            Toy toyObject2 = result[1];
 
             // Assert
-            Assert.DoesNotContain(toy, toysForTerell);
+            // Assert.DoesNotContain(result, ToyToRevoke);
+            Assert.True(toyObject1.name == "bicycle");
+            Assert.True(toyObject2.name == "other stuff");
         }
-
-        // [Fact]
-        // public void ReviewToyListForChildren()
-        // {
-            // Arrange
-        //     Child child1 = _book.AddChild("Sean");
-        //     Child child2 = _book.AddChild("Heather");
-        //     Toy toy1 = _register.Add("Bicycle", child1);
-        //     Toy toy2 = _register.Add("Flute", child2);
-        //     Toy toy3 = _register.Add("Laptop", child1);
-
-            // Act
-
-            // Assert
-        //     //Assert.Count(); 
-        // }
-
-        // [Fact]
-        // public void ListAllofChildsToys()
-        // {
-            // Arrange
-        //     Child child1 = _book.AddChild("Sean");
-        //     Child child2 = _book.AddChild("Heather");
-        //     Toy toy1 = _register.Add("Bicycle", child1);
-        //     Toy toy2 = _register.Add("Laptop", child1);
-        //     Toy toy3 = _register.Add("Flute", child2);
-
-            // Act
-        //     List<Toy> toysForKiddo = _register.GetToysForChild(child1);
-
-            // Assert
-        //     Assert.Contains("Ball", "Truck");
-        //     // Assert.Count(); 
-        // }
     }
 }
