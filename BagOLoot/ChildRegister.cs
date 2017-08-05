@@ -24,5 +24,9 @@ namespace BagOLoot
 
         public Child GetChild (string name) =>  _children.SingleOrDefault(kid => kid.name == name);
         
+        public void SetDelivered (Child kid)
+        {
+            kid.delivered = true;
+        }
     }
 }

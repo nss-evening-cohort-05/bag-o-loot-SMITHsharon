@@ -13,47 +13,61 @@ namespace BagOLoot.Tests
             _register = new SantasNiceList();
         }
 
-        [Theory]
-        [InlineData("Sarah")]
-        [InlineData("Jamal")]
-        [InlineData("Kelly")]
+        [Theory] // Arrange
+        [InlineData("Sean")]
+        [InlineData("Heather")]
+        [InlineData("Harrison")]
         public void AddChildren(string child)
         {
+            // Act
             var result = _register.AddChild(child);
+
+            // Assert
             Assert.True(result != null);
         }
 
-        // [Fact]
-        // public void AddNoResponse() ??????????
-        // {
-        //     _register.AddChild();
-        //     Assert.True(result == null);
-        // }
 
         [Fact]
         public void ReturnListOfChildren()
         {
+            // Arrange
             _register.AddChild("Svetlana");
-            List<Child> children = _register.GetChildren();
-            Assert.IsType<List<Child>>(children);
-            Assert.True(children.Count > 0);
+
+            // Act
+            var result = _register.GetChildren();
+
+            // Assert
+            Assert.IsType<List<Child>>(result);
+            Assert.True(result.Count > 0);
         }
+
 
         [Fact]
         public void GetAChild()
         {
+            // Arrange
             var created = _register.AddChild("Svetlana");
+
+            // Act
             Child svetlana = _register.GetChild("Svetlana");
+
+            // Assert
             Assert.True(created.name == svetlana.name);
         }
 
-        // [Fact]
-        // public void NotDeliveredList()
-        // {
-        //     Child kid = _book.AddChild("Terell");
-        //     Toy toy = _register.Add("Silly Putty", kid);
-        //     // List<Toy> toysForTerell = _register.GetToysForChild(kid);
-        //     // Assert.DoesNotContain(toy, toysForTerell);
-        // }
+
+        [Fact]
+        public void SetDeliveredStatusForChild() 
+        {
+            // Arrange
+            var created = _register.AddChild("Sean");
+            Child sean = _register.GetChild("Sean");
+
+            // Act
+            _register.SetDelivered (sean);
+
+            // Assert
+            Assert.Equal(sean.delivered, true);
+        }
     }
 }

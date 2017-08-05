@@ -25,7 +25,7 @@ namespace BagOLoot.Actions
         
         if (userResponse == "Y" || userResponse == "y")
         {
-          kid.delivered = true;
+          book.SetDelivered (kid);
         }
       }
       return;
