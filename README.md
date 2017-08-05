@@ -33,14 +33,21 @@ WELCOME TO THE BAG O' LOOT SYSTEM
 
 #### Unit Tests
 - `ChildRegisterShould` ...
+
   -- `AddChildren`
+  
   -- `ReturnListOfChildren`
+  
   -- `GetAChild`
+  
   -- `SetDeliveredStatusForChild`
   
 - `ToyRegisterShould` ... 
+
   -- `AddToy`
+  
   -- `GetToyListForChild`
+  
   -- `RevokeToyFromChild`
 
 
