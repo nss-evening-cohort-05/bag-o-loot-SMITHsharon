@@ -9,21 +9,26 @@ namespace BagOLoot.Actions
     public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
       var children = book.GetChildren().ToArray();
-      if (children.Length == 0)
-      {
-        PromptForAddChild.Prompt("You must first register a child and their toys before any toys can be delivered.");
-        return;
-      }
-      var kid = KidsMenu.Show(book, "Which child had all of their toys delivered?");
+      bool thereAreKidsToList = true;
       
-      Console.WriteLine ($"Press Y to confirm that {kid.name}'s toys were all delivered.");
-      Console.Write ("> ");
-      string userResponse = Console.ReadLine();
-      
-      if (userResponse == "Y" || userResponse == "y")
+      thereAreKidsToList = CheckForChildren.Prompt
+                           (children.Length, 
+                           "You must first register a child and their toys before any toys can be delivered.");
+
+      if (thereAreKidsToList)
       {
-        kid.delivered = true;
+        var kid = KidsMenu.Show(book, "Which child had all of their toys delivered?");
+        
+        Console.WriteLine ($"Press Y to confirm that {kid.name}'s toys were all delivered.");
+        Console.Write ("> ");
+        string userResponse = Console.ReadLine();
+        
+        if (userResponse == "Y" || userResponse == "y")
+        {
+          kid.delivered = true;
+        }
       }
+      return;
     }
   }
 }
